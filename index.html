@@ -1,0 +1,79 @@
+<!DOCTYPE html> <html class=no-js> <head> <meta charset=utf-8> <title>Saco livslöner</title> <meta name=description content=""> <meta name=viewport content="width=device-width"> <link rel="shortcut icon" href=/fabab481.favicon.ico> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel=stylesheet href=styles/37ba38b3.main.css>  <body> <!--[if lt IE 9]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]--> <!-- TEMPLATE: MOBILE NAVIGATION --> <script id=navigation-mobile type=text/x-handlebars-template><select class='form-control profession'>
+      <option value="">Välj ett yrke</option>
+        {{#each . }}
+        <optgroup label="{{ name }}">
+          {{#each items}}
+          <option value="{{ label }}|{{ column }}|{{baseline}}">{{ label }}</option>
+          {{/each}}
+        </optgroup>
+        {{/each}}
+      </select></script> <!-- TEMPLATE: DESKTOP NAVIGATION --> <script id=navigation-desktop type=text/x-handlebars-template>{{#each .}}
+    <div class="column">
+      {{#if @first}}
+      <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <span class="glyphicon glyphicon-remove pull-right"></span>
+                Rensa val
+            </h4>
+          </div>
+      </div>
+      {{/if}}
+      {{#each .}}
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <span class="glyphicon glyphicon-plus pull-right"></span>
+                {{ nameShort }}
+            </h4>
+          </div>
+          <div class="panel-collapse in" id="group-{{ slugify nameShort }}">
+            <div class="panel-body">
+              {{#each items}}
+              <label>
+                <input type="checkbox" value="{{ label }}|{{ column }}|{{baseline}}" class="profession"/> <span class="label-text">{{ label }}</span>
+              </label>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+    {{/each}}</script> <!-- TEMPLATE: STORY SLIDER --> <script id=story-points-template type=text/x-handlebars-template><div id="story-carousel" class="carousel slide">
+       <div class="carousel-inner">
+          {{#each .}}
+          <div class="story-text item" data-columns="{{columns}}">
+            <h3>{{ title }}</h3>
+            <div class="content">{{{ content }}}</div>
+          </div>
+          {{/each}}
+        </div>
+        <a class="carousel-control left" href="#story-carousel" data-slide="prev">‹</a>  
+        <a class="carousel-control right" href="#story-carousel" data-slide="next">›</a> 
+        <ol class="carousel-indicators">
+          <li data-target="#story-carousel" data-slide-to="0" class="active"></li>
+          <li data-target="#story-carousel" data-slide-to="1"></li>
+          <li data-target="#story-carousel" data-slide-to="2"></li>
+        </ol> 
+      </div></script> <div class=container-fluid> <div class=intro> <p class=lead> Lönen är så mycket mer än vad som syns i lönekuvertet i slutet av månaden. Hela livets inkomster räknas, inte minst för dig som är akademiker med obetalda studieår i bagaget. Utbildning ska löna sig. Därför måste det finnas möjlighet till löneutveckling. </p> </div> <div id=chart class=no-selection> </div> <div id=footnote> (Beräkningarna är baserade på 2009 års löner och regelverk. Källa: <a href="http://www.saco.se/vara-fragor/rapporter/lonsamma-studier-livslonerapport-2011/" target=_top>rapporten Lönsamma studier.</a>) </div> </div> <script src=scripts/56c74da7.vendor.js></script> <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. --> <script>/*(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');*/</script> <script>function getUrlParameterByName(name) {
+        name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+    // The breakpoint in px when to load the mobile version
+    var breakpoint = 650;
+
+    // App settings
+    var app = {};
+    app.selector = '#chart';
+    //app.mobile = getUrlParameterByName('version') == 'mobile';
+    app.mobile = $('body').width() < breakpoint;
+    app.dataPath = 'data/data2016.csv';</script> <script src=scripts/b6a135fc.main.js></script> <script type=text/javascript src=//use.typekit.net/zxg8sjd.js></script> <script type=text/javascript>try { Typekit.load(); } catch (e) { console.log(e); }</script> <script type=text/javascript>app.init();</script>  
