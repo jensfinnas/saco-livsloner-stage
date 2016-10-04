@@ -1,0 +1,77 @@
+
+// Desktop navigation
+.navigation.desktop {
+	.column {
+		width: 18%;
+		display: inline-block;
+		margin: .6%;
+		float: left;
+	}
+	.panel {
+		background: $saco-grey;
+		border-radius: 6px;
+		box-shadow: 0;
+		border: 0;
+		margin-bottom: 6px;
+
+		
+		.panel-heading {
+			
+			background-color: $saco-orange;
+			border: 0;
+			cursor: pointer;
+			padding: 7px 10px;
+
+			.panel-title {
+				font-size: 12px;
+				.glyphicon {
+					font-size: 8px;
+				}
+			}
+			
+		}
+		.panel-body {
+			padding: 4px 10px;
+			font-size: 12px;
+			
+			label {
+				font-weight: 300;
+				display: block;
+				margin-bottom: 2px;
+				margin-bottom: 4px;
+				cursor: pointer;
+				line-height: 1.1em;
+
+				input {
+					display: none;
+				}
+				input:checked + .label-text {
+					font-weight: bold;
+				}
+			}	
+		}
+		
+	}
+}
+/*
+@media screen and (min-width: 875px) {
+	.navigation.desktop {
+		.panel {
+			.panel-heading {
+				.panel-title {
+					font-size: 13px;
+					.glyphicon {
+					}
+				}
+				
+			}
+			.panel-body {
+				font-size: 13px;
+				
+				label {
+				}	
+			}
+			
+		}
+	}
+}*/

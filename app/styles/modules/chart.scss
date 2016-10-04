@@ -1,0 +1,214 @@
+#chart {
+  width: 100%;
+  
+  .chart {
+    position: relative;
+  }
+}
+.hidden {
+  display: none;
+}
+/* GRAPH */
+
+// AXES
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #ccc;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  /*display: none;*/
+}
+.axis .caption {
+  fill: #3D3D3D;
+  font-weight: bold;
+}
+@media screen and (min-width: $break-point) {
+  .axis .caption {
+    font-size: 16px;
+  }
+}
+
+// Lines
+.line-group.faded {
+  path, line, text {
+    opacity: 0;
+  }
+}
+.line {
+    fill: none;
+    stroke: #000;
+    vector-effect: non-scaling-stroke;
+}
+.profession-line {
+  .line {
+    stroke: $theme-color;
+    stroke-width: 2px;
+  }
+  .color-key {
+    fill: $theme-color;
+  }
+}
+
+.baseline {
+  .line {
+    fill: none;
+    stroke: $color-dark-grey;
+    stroke-width: 1px;
+    z-index: 999;
+  }
+  .color-key {
+    fill: $color-dark-grey;
+  }
+}
+@media screen and (min-width: $break-point) {
+  .baseline {
+    .line, line {
+      stroke: $theme-color;
+      stroke-width: 2px;
+    }
+    .label-group {
+      text {
+        fill: $theme-color;
+        font-weight: bold;
+      }
+    }
+  }
+  .profession-line {
+    .line, line {
+      stroke: $color-dark-grey;
+      stroke-width: 1px;
+    }
+  }
+}
+
+// AREAS
+.area, .faded .area {
+  fill-opacity: 0.7;
+  opacity: 0.00001;
+}
+.highlighted {
+  .area {
+    opacity: 1;
+  }
+}
+.area.above {
+  fill: rgb(145,207,96);
+}
+
+.area.below {
+  fill: rgb(252,141,89);
+}
+
+// ANNOTATION
+
+// Break even point
+.break-even {
+  circle {
+    fill: #fff;
+    stroke: $theme-color;
+  }
+}
+@media screen and (min-width: $break-point) {
+  .break-even {
+    font-size: 20px;
+  }
+}
+
+
+// The highlighted difference between baseline and profession
+.difference {
+  text {
+    text-anchor: middle;
+  }
+  line {
+    stroke-width: 1;
+    stroke-dasharray: 4, 2;
+  }
+}
+.difference.plus {
+  line {
+    stroke: rgb(25, 167, 25);
+  }
+}
+.difference.minus {
+  line {
+    stroke: red;
+  }
+}
+
+#legend {
+  position: relative;
+  top: 30px;
+  left: 120px;
+}
+
+.sentence {
+  border-radius: 6px;
+  display: block;
+  border: 1px solid #f1f1f1;
+  background-color: #fff;
+  .header {
+    background-color: $theme-color;
+      padding: 4px 10px;
+      color: #fff;
+      font-weight: bold;
+  }
+  .body {
+    padding: 10px;
+  }
+}
+@media screen and (min-width: $break-point) {
+  .sentence {
+    font-size: 13px;
+    position: absolute;
+    width: 280px;
+    left: 122px;
+    top: 7px;
+  }
+}
+
+// Sidebar labels (desktop)
+.label-group {
+  cursor: default;
+
+  line {
+    stroke-dasharray: 2,2;
+  }
+}
+
+// Handle inactive state (no selection)
+.overlay {
+  opacity: 0;
+  display: none;
+}
+.no-selection {
+  .overlay {
+    opacity: 0.7;
+    display: block;
+  }
+  .sentence {
+    display: none;
+  }
+}
+
+// TOOLTOP
+.tooltip {
+  margin-left: -125px !important;
+  margin-top: 75px !important;
+  .tooltip-inner {
+    text-align: left;
+    padding: 5px 12px;
+  }
+}
+
+// FOOTNOTE
+#footnote {
+  margin-top: 10px;
+  color: #999;
+  font-size: 11px;
+  float: right;
+}
+
